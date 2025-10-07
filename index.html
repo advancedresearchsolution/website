@@ -53,24 +53,35 @@
       margin-top: 30px;
     }
 
-    footer {
-      margin-top: 60px;
-      background: #000;
-      color: #fff;
-      padding: 28px 18px;
-      border-top: 3px solid #007f3d;
-      text-align: center;
-      font-size: 14px;
-    }
-    footer img.flag {
-      vertical-align: middle;
-      margin-right: 10px;
-    }
-    footer .muted {
-      color: #cfcfcf;
-      font-size: 13px;
-      margin-top: 8px;
-    }
+  footer {
+    margin-top: 60px;
+    background: #000;
+    color: #fff;
+    padding: 28px 18px;
+    border-top: 3px solid #00b36b; /* or var(--green) if defined */
+    text-align: center;
+    font-size: 14px;
+  }
+
+  footer img.flag {
+    vertical-align: middle;
+    margin-right: 8px;
+  }
+
+  footer .footer-line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 10px;
+  }
+
+  footer .muted {
+    color: #ccc;
+    font-size: 12px;
+    margin-top: 12px;
+  }
   </style>
 </head>
 <body>
@@ -88,41 +99,20 @@
     <div class="coming-soon"><i>Coming Soon</i></div>
   </div>
 
-  <footer> 
-    <p>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/0/01/Flag_of_California.svg" 
-           alt="California Flag" width="40" style="vertical-align:middle; margin-right:8px;">
-      <strong>Registered LLC in California</strong>
-    </p>
-    <p style="margin-top:10px; display:flex; align-items:center; justify-content:center; gap:5px; flex-wrap:wrap;">
-      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 7410 3900">
-        <path d="M0,0h7410v3900H0" fill="#bf0a30"/>
-        <path d="M0,450H7410m0,600H0m0,600H7410m0,600H0m0,600H7410m0,600H0" stroke="#FFF" stroke-width="300"/>
-        <path d="M0,0h2964v2100H0" fill="#00205B"/>
-        <g fill="#FFF">
-          <g id="s18">
-            <g id="s9">
-              <g id="s5">
-                <g id="s4">
-                  <path id="s" d="M247,90 317.534230,307.082039 132.873218,172.917961H361.126782L176.465770,307.082039z"/>
-                  <use xlink:href="#s" y="420"/>
-                  <use xlink:href="#s" y="840"/>
-                  <use xlink:href="#s" y="1260"/>
-                </g>
-                <use xlink:href="#s" y="1680"/>
-              </g>
-              <use xlink:href="#s4" x="247" y="210"/>
-            </g>
-            <use xlink:href="#s9" x="494"/>
-          </g>
-          <use xlink:href="#s18" x="988"/>
-          <use xlink:href="#s9" x="1976"/>
-          <use xlink:href="#s5" x="2470"/>
-        </g>
-      </svg>
-      <span>Advanced Research Solution, LLC — U.S.-Based Research Consulting Company</span>
-    </p>
-    <p style="margin-top:12px; font-size:12px; color:#ccc">© 2025 Advanced Research Solution, LLC</p>
-  </footer>
+<footer>
+  <p>
+    <img class="flag" src="https://upload.wikimedia.org/wikipedia/commons/0/01/Flag_of_California.svg" 
+         alt="California Flag" width="40">
+    <strong>Registered LLC in California</strong>
+  </p>
+
+  <div class="footer-line">
+    <img src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg"
+         alt="US Flag" width="40">
+    <span>Advanced Research Solution, LLC — U.S.-Based Research Consulting Company</span>
+  </div>
+
+  <p class="muted">© 2025 Advanced Research Solution, LLC</p>
+</footer>
 </body>
 </html>
