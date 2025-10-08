@@ -1,2 +1,9 @@
 User-agent: *
-Disallow: /
+Allow: /
+
+Sitemap: https://advancedresearchsolution.com/sitemap.xml
+
+# This robots.txt file controls how search engines crawl your website.
+# "User-agent: *" means all search engines are allowed.
+# "Allow: /" gives them access to all pages.
+# The Sitemap line helps Google and Bing find all your pages efficiently.
