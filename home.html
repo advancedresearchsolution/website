@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Advanced Research Solution: Medical Research Consultation</title>
+  <meta name="description" content="We help with case reports, cohort studies, thesis writing, systematic reviews, and meta-analyses.">
+  <link rel="icon" href="favicon.png" type="image/png">
+  <style>
+    :root{
+      --green:#4CAF50;
+      --dark:#20323b;
+      --muted:#6b7a73;
+      --bg:#f7faf8;
+      --card:#ffffff;
+    }
+    html,body{height:100%;margin:0;font-family:Inter, "Segoe UI", Arial, sans-serif;background:var(--bg);color:var(--dark);}
+
+    /* NAV */
+    nav{
+      background:var(--card);
+      box-shadow:0 2px 6px rgba(0,0,0,0.06);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:12px 20px;
+      gap:12px;
+      position:sticky;
+      top:0;
+      z-index:50;
+    }
+    .nav-left{display:flex;align-items:center;gap:12px}
+    .logo{width:240px;height:auto;display:block}
+
+    /* Wrap links + CTA */
+    .nav-right{display:flex;align-items:center;gap:14px}
+
+    .nav-links{display:flex;gap:12px;align-items:center}
+    .nav-links a{color:var(--dark);text-decoration:none;font-weight:600;padding:8px 10px;border-radius:8px}
+    .nav-links a:hover{background:rgba(76,175,80,0.08)}
+
+    .nav-cta a{background:var(--green);color:#fff;padding:8px 14px;border-radius:8px;text-decoration:none;font-weight:700}
+    .nav-cta a:hover{opacity:0.95}
+
+    /* HERO */
+    .hero{max-width:1200px;margin:28px auto 18px;padding:28px 20px;display:grid;grid-template-columns:1fr 380px;gap:28px;align-items:center}
+    .hero-left{padding:12px}
+    .eyebrow{color:var(--green);font-weight:700;font-size:28px;margin-bottom:8px}
+    .hero h1{margin:0 0 10px;font-size:25px;color:var(--dark);line-height:1.05}
+    .hero-sub{margin:0 0 18px;color:#344; font-size:18px}
+    .hero p.lead{color:var(--muted);margin:0 0 18px;line-height:1.6;font-size:16px}
+
+    /* bullets */
+    .features{display:grid;grid-template-columns:repeat(1, minmax(0,1fr));gap:10px}
+    .feature{display:flex;gap:12px;align-items:flex-start}
+    .feature .icon{min-width:36px;height:36px;border-radius:8px;background:var(--green);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-weight:700;box-shadow:0 2px 6px rgba(0,0,0,0.06)}
+    .feature .txt{font-size:15px;color:#234;padding-top:2px}
+    .feature .txt strong{color:#0b4f3a}
+
+    /* hero right: small CTA + quick text */
+    .hero-right{background:var(--card);border-radius:12px;padding:18px;box-shadow:0 6px 22px rgba(17,50,26,0.06)}
+    .hero-right h3{margin:0 0 8px;font-size:18px;color:var(--dark)}
+    .hero-right p{margin:0 0 16px;color:var(--muted);font-size:15px;line-height:1.5}
+    .btn-book{display:block;background:var(--green);color:#fff;padding:12px 16px;border-radius:10px;text-decoration:none;font-weight:700;cursor:pointer;margin: 0 auto}
+    .btn-book:hover{opacity:0.95}
+
+    /* Pricing (kept) */
+    .container{max-width:1100px;margin:30px auto;padding:0 20px}
+    .pricing-wrap{margin:18px 0}
+    .pricing-panel{background:linear-gradient(180deg,#fff,#f7fff7);border-radius:12px;padding:10px;box-shadow:0 6px 22px rgba(17,50,26,0.06)}
+    table{width:100%;border-collapse:collapse;min-width:300px}
+    th,td{padding:14px 16px;border-bottom:1px solid rgba(0,0,0,0.06);font-size:15px}
+    th{background:linear-gradient(90deg,var(--green),#2e8b57);color:#fff;text-transform:uppercase;font-size:13px;letter-spacing:0.06em}
+    td.service{font-weight:700;text-align:left;color:#123}
+    td.price{text-align:right;font-weight:800;color:#0b6b4b;font-size:17px}
+    .badge{display:inline-block;background:#ffd166;color:#4a2b00;padding:4px 8px;border-radius:12px;font-weight:700;font-size:12px;margin-left:8px}
+
+    /* Consultation section */
+    .consult-section{display:flex;gap:28px;align-items:flex-start;justify-content:center;margin:28px auto 44px;max-width:1100px;padding:0 20px}
+    .consult-left{flex:1;min-width:260px}
+    .consult-right{width:420px;flex:0 0 420px}
+    .consult-card{background:#fff;border-radius:12px;padding:22px;box-shadow:0 6px 22px rgba(17,50,26,0.06)}
+    .consult-title{font-size:20px;color:#20323b;margin:0 0 12px}
+    .checklist{list-style:none;padding:0;margin:0;line-height:1.8}
+    .checklist li{display:flex;align-items:flex-start;gap:12px;margin-bottom:12px}
+    .check-icon{min-width:36px;height:36px;border-radius:8px;background:var(--green);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-weight:700;box-shadow:0 2px 6px rgba(0,0,0,0.06)}
+    .check-text{font-size:15px;color:#334}
+    .calendly-frame{background:#fff;border-radius:10px;padding:8px;box-shadow:0 6px 22px rgba(17,50,26,0.06);height:900px;overflow:hidden}
+
+    /* footer */
+    footer {
+      margin-top: 60px;
+      background: #000;
+      color: #fff;
+      padding: 28px 18px;
+      border-top: 3px solid #00b36b; /* or var(--green) if defined */
+      text-align: center;
+      font-size: 14px;
+    }
+
+    footer img.flag {
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+
+    footer .footer-line {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 10px;
+    }
+
+    footer .muted {
+      color: #ccc;
+      font-size: 12px;
+      margin-top: 12px;
+    }
+
+    /* responsive */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr;gap:18px;padding:18px}
+      .hero-right{order:2}
+    }
+    @media (max-width:820px){
+      nav{padding:10px}
+      .logo{width:200px}
+      .hero h1{font-size:24px}
+      .consult-right{width:100%;flex:1}
+      .calendly-frame{height:380px}
+    }
+
+    /* Mobile nav (iPhone) */
+    @media (max-width:480px){
+      nav{
+        flex-direction: column; /* stack logo + links vertically */
+        align-items: center;    /* center everything horizontally */
+        gap: 10px;
+      }
+      .nav-right{
+        flex-direction: column; /* stack links + CTA vertically */
+        align-items: center;    /* center links and CTA */
+        width: 100%;
+      }
+      .nav-links{
+        flex-direction: column;
+        gap: 6px;
+        width: 100%;
+      }
+      .nav-links a{
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+      }
+      .nav-cta a{
+        width: auto;      /* allow button to shrink to content */
+        text-align: center;
+      }
+      /* On very small screens, place the embedded Calendly below content and center it */
+      .consult-section{flex-direction:column-reverse;align-items:center}
+      .consult-right{width:100%;max-width:420px}
+      .calendly-frame{width:100%;height:900px;margin-top:12px}
+    }
+
+
+  </style>
+
+  <!-- Calendly widget -->
+  <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav role="navigation" aria-label="Main navigation">
+    <div class="nav-left">
+      <a href="home.html"><img src="logo.png" alt="Advanced Research Solution logo" class="logo"></a>
+    </div>
+
+    <div class="nav-right">
+      <div class="nav-links" aria-hidden="false">
+        <a href="home.html">Home</a>
+        <a href="aboutus.html">About Us</a>
+        <a href="price.html">Pricing</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="nav-cta">
+        <a href="https://calendly.com/advancedresearchsolution-info/30min" target="_blank">Book (Free)</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO / MAIN -->
+  <section class="hero" aria-labelledby="hero-heading">
+    <div class="hero-left">
+      <div class="eyebrow">Methodology-first clinical & epidemiology consulting</div>
+      <h1 id="hero-heading">We make medical research stronger, clearer, and publication-ready</h1>
+      <p class="lead">Turn your idea into a robust study and a submission-ready manuscript. From short case reports to complex meta-analyses and thesis protocols — we refine study methods, strengthen analysis, and improve clarity so journals and reviewers see your best work.</p>
+
+      <div class="features" role="list" aria-label="Our core services">
+        <div class="feature" role="listitem">
+          <div class="icon" aria-hidden="true">✓</div>
+          <div class="txt"><strong>Case reports & manuscripts</strong> — targeted review so your submission meets journal expectations.</div>
+        </div>
+        <div class="feature" role="listitem">
+          <div class="icon" aria-hidden="true">✓</div>
+          <div class="txt"><strong>Meta-analyses & systematic reviews</strong> — protocol design, bias assessment and advanced methods support.</div>
+        </div>
+        <div class="feature" role="listitem">
+          <div class="icon" aria-hidden="true">✓</div>
+          <div class="txt"><strong>Thesis & study protocols</strong> — sample size, analysis plan, reproducibility & study robustness.</div>
+        </div>
+        <div class="feature" role="listitem">
+          <div class="icon" aria-hidden="true">✓</div>
+          <div class="txt"><strong>Editorial & peer-review insight</strong> — we are journal editors and experienced reviewers who know how reviewers evaluate manuscripts.</div>
+        </div>
+      </div>
+    </div>
+
+    <aside class="hero-right" aria-labelledby="book-cta">
+      <h3 id="book-cta">Quick: Book a Free Meeting</h3>
+      <p>Want a fast chat to see if we’re a fit? Use our free 30-minute consultation — confidential and zero obligation.</p>
+      <a class="btn-book" href="https://calendly.com/advancedresearchsolution-info/30min" target="_blank">Book your free 30-minute consultation</a>
+      <p style="margin-top:12px;font-size:13px;color:var(--muted)">Or scroll down to use the calendar embedded on this page.</p>
+    </aside>
+  </section>
+
+  <!-- Pricing -->
+  <div class="container">
+    <section class="pricing-wrap" aria-labelledby="pricing-heading">
+      <h2 id="pricing-heading" style="text-align:center;margin-bottom:12px;color:var(--dark)">Pricing</h2>
+      <div class="pricing-panel" role="table" aria-labelledby="pricing-heading">
+        <table>
+          <tr>
+            <th>Service</th>
+            <th style="width:160px">Flat Fee</th>
+          </tr>
+          <tr>
+            <td class="service">Initial Consultation <span style="font-weight:400;font-size:13px;color:var(--muted)"> (1 hour)</span></td>
+            <td class="price">$100</td>
+          </tr>
+          <tr>
+            <td class="service">Data Analysis Project <span style="font-weight:400;font-size:13px;color:var(--muted)"> (basic)</span></td>
+            <td class="price"><span class="badge">Popular</span> $500</td>
+          </tr>
+          <tr>
+            <td class="service">Full Research Support <span style="font-weight:400;font-size:13px;color:var(--muted)"> (advanced project)</span></td>
+            <td class="price">$1,200</td>
+          </tr>
+          <tr>
+            <td class="service">Manuscript Editing & Submission Prep</td>
+            <td class="price">$400</td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <!-- Consultation section (checklist + small calendar) -->
+    <section class="consult-section" aria-labelledby="consult-heading">
+      <div class="consult-left">
+        <div class="consult-card" role="region" aria-labelledby="consult-heading">
+          <div class="consult-title" id="consult-heading">Book Your Free 30-Minute Consultation</div>
+          <ul class="checklist" aria-describedby="consult-desc">
+            <li>
+              <div class="check-icon" aria-hidden="true">✓</div>
+              <div class="check-text"><strong>For getting to know how we can help with your project</strong>: just use our complimentary consultation.</div>
+            </li>
+            <li>
+              <div class="check-icon" aria-hidden="true">✓</div>
+              <div class="check-text"><strong>It’s totally free</strong> and without obligation.</div>
+            </li>
+            <li>
+              <div class="check-icon" aria-hidden="true">✓</div>
+              <div class="check-text"><strong>100% privacy</strong> — no information about your project will be recorded, and everything is kept completely confidential.</div>
+            </li>
+            <li>
+              <div class="check-icon" aria-hidden="true">✓</div>
+              <div class="check-text"><strong>Use the calendar on the right</strong> to pick a convenient time for your free 30-minute consultation.</div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="consult-right">
+        <div class="calendly-frame" aria-label="Booking calendar">
+          <!-- Inline Calendly (kept compact) -->
+          <div class="calendly-inline-widget" data-url="https://calendly.com/advancedresearchsolution-info/30min" style="width:100%;height:100%;"></div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/01/Flag_of_California.svg" 
+           alt="California Flag" width="40" style="vertical-align:middle; margin-right:8px;">
+      <strong>Registered LLC in California</strong>
+    </p>
+    <p><strong>Office Address:</strong> 600 Minnesota St, San Francisco, CA, USA 94107</p>
+    <p><strong>Tel:</strong> +1(650)-609-0557</p>
+    <p style="margin-top:10px; display:flex; align-items:center; justify-content:center; gap:5px;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 7410 3900">
+        <path d="M0,0h7410v3900H0" fill="#bf0a30"/>
+        <path d="M0,450H7410m0,600H0m0,600H7410m0,600H0m0,600H7410m0,600H0" stroke="#FFF" stroke-width="300"/>
+        <path d="M0,0h2964v2100H0" fill="#00205B"/>
+        <g fill="#FFF">
+          <g id="s18">
+            <g id="s9">
+              <g id="s5">
+                <g id="s4">
+                  <path id="s" d="M247,90 317.534230,307.082039 132.873218,172.917961H361.126782L176.465770,307.082039z"/>
+                  <use xlink:href="#s" y="420"/>
+                  <use xlink:href="#s" y="840"/>
+                  <use xlink:href="#s" y="1260"/>
+                </g>
+                <use xlink:href="#s" y="1680"/>
+              </g>
+              <use xlink:href="#s4" x="247" y="210"/>
+            </g>
+            <use xlink:href="#s9" x="494"/>
+          </g>
+          <use xlink:href="#s18" x="988"/>
+          <use xlink:href="#s9" x="1976"/>
+          <use xlink:href="#s5" x="2470"/>
+        </g>
+      </svg>
+      <span>Advanced Research Solution, LLC — U.S.-Based Research Consulting Company</span>
+    </p>
+    <p style="margin-top:12px; font-size:12px; color:#ccc">© 2025 Advanced Research Solution, LLC</p>
+  </footer>
+
+</body>
+</html>
